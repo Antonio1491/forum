@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Category;
+use App\Models\Thread;
 
 class ShowThreads extends Component
 {
@@ -11,8 +12,9 @@ class ShowThreads extends Component
     {
 
         $categories = Category::get();
+        $threads = Thread::latest()->get();
 
-        return view('livewire.show-threads', compact('categories'))
+        return view('livewire.show-threads', compact('categories', 'threads'))
                 ->layout('layouts.app');
     }
 }

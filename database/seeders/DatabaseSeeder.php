@@ -16,11 +16,13 @@ class DatabaseSeeder extends Seeder
   
 
         \App\Models\User::factory()->create([
-            'name' => 'Antonio  ',
+            'name' => 'Antonio ',
             'email' => 'sistemas@anpr.org.mx',
             'password' => bcrypt('123456789'), // password
         ]);
 
-        \App\Models\category::factory(10)->create();
+        \App\Models\category::factory(10)
+            ->hasThreads(20)
+            ->create();
     }
 }
