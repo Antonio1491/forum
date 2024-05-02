@@ -41,7 +41,12 @@
                                 Categoría
                             </span>
                         </h2>
-                        <p></p>
+                        <p class="flex items-center justify-between w-full text-xs">
+                            <span class="text-blue-600 font-semibold">Usuario
+                                <span class="text-white/90">{{ $thread->created_at->diffForHumans()}}</span>
+                            </span>
+                            <span class="text-slate-700">Respuestas y botón</span> 
+                        </p>
                     </div>
                 </div>
             </div>
