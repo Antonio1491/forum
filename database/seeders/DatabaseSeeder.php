@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\category::factory(10)
             ->hasThreads(20)
             ->create();
+
+        \App\Models\Reply::factory(400)->create();
     }
 }
