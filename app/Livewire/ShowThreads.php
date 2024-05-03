@@ -12,7 +12,7 @@ class ShowThreads extends Component
     {
 
         $categories = Category::get();
-        $threads = Thread::latest()->get();
+        $threads = Thread::latest()->withCount('replies')->get();
 
         return view('livewire.show-threads', compact('categories', 'threads'))
                 ->layout('layouts.app');
