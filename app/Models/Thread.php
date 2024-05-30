@@ -14,11 +14,14 @@ class Thread extends Model
         return $this->belongsTo(Category::class);
     }
 
+
+    // Relación: Una pregunta pertenece a un usuario
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    // relación: Una pregunta tiene muchas respuestas
     public function replies()
     {
         return $this->hasmany(Reply::class);
