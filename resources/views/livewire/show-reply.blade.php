@@ -10,9 +10,21 @@
                 <p class="mb-2 text-blue-600 font-semibold flex items-center justify-between w-full text-xs">
                     {{$reply->user->name}}
                 </p>
-                <p class="text-white/60 text-xs">
-                    {{ $reply->body }}
-                </p>
+                {{-- formulario --}}
+                @if ($is_editing)
+                    <form wire:submit.prevent="updateReply" class="mt-4">
+                        <input 
+                            type="text" name="" id="" 
+                            placeholder="Escribe una respuesta" 
+                            class="bg-slate-800 border-1 border-slate-900 rounded-md w-full p-3 text-white/60 text-xs"
+                            wire:model="body"
+                            @keydown.enter="$wire.$refresh()">
+                    </form>
+                    @else
+                    <p class="text-white/60 text-xs">
+                        {{ $reply->body }}
+                    </p>
+                @endif
 
                 {{-- formulario --}}
                 @if ($is_creating)
@@ -30,7 +42,7 @@
                     @if (is_null($reply->reply_id))    
                         <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">Responder</a>
                     @endif
-                        <a href="#" class="hover:text-white">Editar</a>
+                        <a href="#" wire:click.prevent="$toggle('is_editing')" class="hover:text-white">Editar</a>
                     
                 </p>
             </div>
