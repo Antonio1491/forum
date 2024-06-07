@@ -66,7 +66,7 @@
                                 {{ $thread->replies_count}} 
                                 Respuesta{{ $thread->replies_count !== 1 ? 's' : ''}}
                                 
-                                <a href="" class="hover:text-white">
+                                <a href="{{route('threads.edit', $thread)}}" class="hover:text-white">
                                     Editar
                                 </a>
                             </span> 
