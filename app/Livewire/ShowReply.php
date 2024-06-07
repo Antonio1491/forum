@@ -4,11 +4,13 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Reply;
+// use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use function PHPUnit\Framework\isNull;
 
 class ShowReply extends Component
 {
+    // use AuthorizesRequests;
 
     public Reply $reply;
     public $body = '';
@@ -23,7 +25,11 @@ class ShowReply extends Component
 
     public function updatedIsEditing()
     {
+        
+        $this->authorize('update', $this->reply);
+
         $this->is_creating = false;
+        
         $this->body = $this->reply->body;
     }
 
@@ -54,6 +60,8 @@ class ShowReply extends Component
     }
 
     public function updateReply(){
+
+        $this->authorize('update', $this->reply);
 
         //validar
         $this->validate(['body' => 'required']);

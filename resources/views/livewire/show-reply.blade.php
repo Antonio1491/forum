@@ -42,7 +42,13 @@
                     @if (is_null($reply->reply_id))    
                         <a href="#" wire:click.prevent="$toggle('is_creating')" class="hover:text-white">Responder</a>
                     @endif
+
+                    {{-- oculta el botón editar si el usuario no tiene los permisos(No es el que creó la respuesta) --}}
+                    @can('update', $reply)
+                        
                         <a href="#" wire:click.prevent="$toggle('is_editing')" class="hover:text-white">Editar</a>
+                    
+                    @endcan
                     
                 </p>
             </div>
