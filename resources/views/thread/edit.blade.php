@@ -6,7 +6,7 @@
             Editar pregunta
         </h2>
         
-        <form action="{{route('thread.update', $thread)}}" method="POST">
+        <form action="{{route('threads.update', $thread)}}" method="POST">
           @csrf
           @method('PUT')
 
