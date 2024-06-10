@@ -1,7 +1,7 @@
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex wap-10 py-12">
     <div class="w-64">
-        <a href="" class="block w-full py-4 mb-10 bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-600 text-white/90 text-xs text-center rounded font-bold">Preguntar</a>
-
+        <a href="{{route('threads.create')}}" class="block w-full py-4 mb-10 bg-gradient-to-r from-blue-600 to-blue-700 hover:to-blue-600 text-white/90 text-xs text-center rounded font-bold">Preguntar</a>
+            Preguntar
         <ul>
 
             @foreach ($categories as $category)
